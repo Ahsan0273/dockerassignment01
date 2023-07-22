@@ -1,0 +1,31 @@
+version: '3'
+services:
+  billing-service:
+    build: 
+      context: ./billing-service
+      dockerfile: Dockerfile
+    ports:
+      - "3004:3004"
+    depends_on:
+      - shipping-service
+
+  users-service:
+    build: 
+      context: ./users-service
+      dockerfile: Dockerfile
+    ports:
+      - "3003:3003"
+
+  shipping-service:
+    build: 
+      context: ./shipping-service
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"
+
+  inventry-service:
+    build: 
+      context: ./inventory-service
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
